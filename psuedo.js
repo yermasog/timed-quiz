@@ -37,5 +37,5 @@
                     //qList[index].question
                     // for loop over qList[index].options > create html element for qList[index].options[i]
     //score.html
-      //capture the score form the local storage and display it to user
+      //capture the score from the local storage and display it to user
       //reset the local storage with 0.

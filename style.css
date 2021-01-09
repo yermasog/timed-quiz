@@ -6,6 +6,11 @@ h1 {
 
 }
 
+.highscore {
+    text-align: center;
+    font-size: 20px;
+}
+
 .container {
     background-color: black;
     text-align: center;
@@ -13,6 +18,7 @@ h1 {
     margin-left: 100px;
     margin-right: 100px;
     padding: 50px;
+    color: white;
 
 }
 

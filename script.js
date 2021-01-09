@@ -13,28 +13,28 @@ var questions = [
     {
         question: "Who killed Ned Stark?",
         choices: ["the executioner", "Joffrey Baratheon", "Cersei Lannister", "his sense of morality"],
-        answer: 4
+        answer: 3
     },
     {
         question: "Who killed Ramsay Bolton?",
-        choices: "the Queen of the North",
-        answer: 1
+        choices: ["Sansa Stark", "Sansa Stark", "Sansa Stark", "the Queen of the North"],
+        answer: 0
     },
     {
         question: "Who did NOT get killed by Arya Stark?",
         choices: ["Cersei Lannister", "the Night King", "Walder Frey", "Petyr Baelish"],
-        answer: 1
+        answer: 0
     },
     {
         question: "Who carried out righteous justice on Stannis Baratheon?",
         choices: ["Robert Baratheon", "Brienne of Tarth", "Cersei Lannister", "Jon Snow"],
-        answer: 2
+        answer: 1
     },
     {
 
         question: "SPOILER ALERT: Who killed Daenerys Targaryen?",
         choices: ["Jon Snow", "David Benioff", "D.B. Weiss", "all of the above"],
-        answer: 4
+        answer: 3
     }
 
 ];
@@ -60,30 +60,38 @@ function newQuest() {
         questionsPlaceholder.textContent = questions[index].question;
         for (let i = 0; i < questions[index].choices.length; i++) {
             var btn = document.createElement("button");
-            btn.setAttribute("data-value", questions[index].choices[i])
+            btn.classList.add("choices");
+            btn.setAttribute("data-value", i);
             questionsPlaceholder.appendChild(btn);
             btn.textContent = questions[index].choices[i];
-        }
+        
+            // btn.addEventListener("click", function() {
+            //     console.log (this.getAttribute("data-value"))}
+              
+            
+        }        
     }
     index++
+
 }
 
-document.body.addEventListener("click", function(event) {
-    if (event.target.matches("button")) {
-        alert("data-value"); 
-        //return the value of what was clicked 
+// document.body.addEventListener("click", function(event){
+//     if (event.target.matches)("button") {
+//         console.log("hello");
+//     })
+// } 
+  
+
+
+
     
-    }
-
-});
-
-
-
 
 function onStart() {
     timeLeft();
     newQuest();
 }
+
+
 
 
 // WHEN I answer a question
@@ -105,4 +113,3 @@ function onStart() {
     //if statement "if question index is last then end game"
 // WHEN the game is over
 // THEN I can save my initials and score
-    //
