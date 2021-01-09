@@ -1,0 +1,54 @@
+h1 {
+    color: red;
+    font-size: 50px;
+    /* padding-top: 25px; */
+    text-align: center;
+
+}
+
+.container {
+    background-color: black;
+    text-align: center;
+    margin-top: 25px;
+    margin-left: 100px;
+    margin-right: 100px;
+    padding: 50px;
+
+}
+
+
+.timer {
+    font-size: 25px;
+    font-weight: bolder;
+    color: black;
+    text-align: center;
+}
+
+.start {
+    background-color: red;
+    font-size: 50px;
+    font-family: Georgia, 'Times New Roman', Times, serif;
+    margin-top: 50px;
+    text-align: center; 
+}    
+
+
+.questionsGoHere {
+    font-size: 30px;
+    color: white;    
+}
+
+button {
+    transition-duration: .4s;
+    display:block;
+    cursor: pointer;
+    background-color: red;
+    text-align: center;
+    font-size: 25px;
+    color: whitesmoke;
+    padding: 25px;
+    font-family: Georgia, 'Times New Roman', Times, serif;
+    border-radius: 10px;
+    width: 50%;    
+}
+
