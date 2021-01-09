@@ -2,11 +2,8 @@ var timeEl = document.querySelector(".timer");
 var startEl = document.querySelector(".start");
 var questionsPlaceholder = document.querySelector(".questionsGoHere");
 var index = 0
-
+var answer = document.querySelector("answer")
 var secondsLeft = 60;
-// WHEN I click the start button
-// THEN a timer starts
-
 var timerInterval;
 
 var questions = [
@@ -48,68 +45,54 @@ function timeLeft() {
 
         if (secondsLeft === 0) {
             clearInterval(timerInterval);
-            // alert("game over");
+            
         }
     }, 1000);
 }
-// AND I am presented with a question
-
 
 function newQuest() {
     if (index < questions.length) {
+        var answerEl = document.getElementById("answer");
+
         questionsPlaceholder.textContent = questions[index].question;
         for (let i = 0; i < questions[index].choices.length; i++) {
             var btn = document.createElement("button");
-            btn.classList.add("choices");
             btn.setAttribute("data-value", i);
             questionsPlaceholder.appendChild(btn);
             btn.textContent = questions[index].choices[i];
-        
-            // btn.addEventListener("click", function() {
-            //     console.log (this.getAttribute("data-value"))}
-              
-            
-        }        
+
+            btn.addEventListener("click", function (event) {
+                answerEl.setAttribute("data", parseInt(this.getAttribute("data-value")))
+            })
+        }
+    getSubmitbtn(answerEl)    
+    }else{
+        alert("you win!")
     }
-    index++
 
 }
 
-// document.body.addEventListener("click", function(event){
-//     if (event.target.matches)("button") {
-//         console.log("hello");
-//     })
-// } 
-  
+function initializeSubmitBtn() {
+    var submitBtn = document.createElement("button");
+    submitBtn.textContent = "Submit";
+    submitBtn.setAttribute("id", "submit-btn");
+    document.body.appendChild(submitBtn);
+}
+
+function getSubmitbtn(answerEl) {
+    document.getElementById("submit-btn").addEventListener("click", function () {
+        if (parseInt(answerEl.getAttribute("data"))==questions[index].answer) {
+            index++
+            questionsPlaceholder.innerHTML = "";
+            newQuest();
+        }
+    })
+}
 
 
-
-    
 
 function onStart() {
     timeLeft();
+    initializeSubmitBtn()
     newQuest();
 }
-
-
-
-
-// WHEN I answer a question
-    //create something that looks like buttons 
-    //put options in buttons (create a data element for options)
-    //create event listener for when button is clicked 
-    //compare chosen value with correct answer 
-// THEN I am presented with another question
-    //change textcontent 
-    //use a trigger 
-// WHEN I answer a question incorrectly
-    //compare chosen value with correct answer
-// THEN time is subtracted from the clock
-    // if values are not equal, secondsleft-=10
-// WHEN all questions are answered or the timer reaches 0
-
-// THEN the game is over
-    //when last question is answered BEFORE clock runs out it needs to stop the clock
-    //if statement "if question index is last then end game"
-// WHEN the game is over
-// THEN I can save my initials and score
