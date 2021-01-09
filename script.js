@@ -60,6 +60,7 @@ function newQuest() {
         questionsPlaceholder.textContent = questions[index].question;
         for (let i = 0; i < questions[index].choices.length; i++) {
             var btn = document.createElement("button");
+            btn.setAttribute("data-value", questions[index].choices[i])
             questionsPlaceholder.appendChild(btn);
             btn.textContent = questions[index].choices[i];
         }
@@ -67,7 +68,14 @@ function newQuest() {
     index++
 }
 
+document.body.addEventListener("click", function(event) {
+    if (event.target.matches("button")) {
+        alert("data-value"); 
+        //return the value of what was clicked 
+    
+    }
 
+});
 
 
 
