@@ -6,6 +6,7 @@ var secondsLeft = 60;
 var timer = document.getElementById("timer");
 var score = document.getElementById("score");
 var endGame = document.getElementById("end-game")
+let index = 0;
 
 startButton.addEventListener("click", onStart);
 nextButton.addEventListener("click", function () {
@@ -26,7 +27,7 @@ function timeLeft() {
 }
 
 function newQuest() {
-    let index = 0;
+    
     questionContainer.classList.remove("hide");
     nextButton.classList.remove("hide");
     startButton.classList.add("hide");
@@ -62,8 +63,8 @@ function newQuest() {
 
 //this needs to be comparing answer function
 function checkAnswer(answerValue, questionsindex) {
+    var rightorWrong = document.querySelector(".right-or-wrong");
     if (answerValue == questions[questionsindex].answer) {
-        var rightorWrong = document.querySelector(".right-or-wrong");
         rightorWrong.textContent = "Correct!"
 
     } else { rightorWrong.textContent = "Wrong!" }
