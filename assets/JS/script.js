@@ -7,7 +7,11 @@ var timer = document.getElementById("timer");
 var score = document.getElementById("score");
 var endGame = document.getElementById("end-game")
 
-startButton.addEventListener("click", onStart)
+startButton.addEventListener("click", onStart);
+nextButton.addEventListener("click", function() {
+    index++
+    newQuest()
+})
 
 function timeLeft() {
     timerInterval = setInterval(function () {
@@ -27,7 +31,7 @@ function newQuest() {
     nextButton.classList.remove("hide");
     startButton.classList.add("hide");
     if (index < questions.length) {
-        // var answerEl = document.getElementById("answer");
+        var answerValue;
 
         quest.textContent = questions[index].question;
         for (let i = 0; i < questions[index].choices.length; i++) {
@@ -38,10 +42,10 @@ function newQuest() {
             btn.textContent = questions[index].choices[i];
 
             btn.addEventListener("click", function (event) {
-                answerEl.setAttribute("data", parseInt(this.getAttribute("data-value")))
+                answerValue = parseInt(this.getAttribute("data-value"))
             })
         }
-    getSubmitbtn(answerEl)    
+    getSubmitbtn(answerValue)    
     }else{
         gameEnd()
     }
@@ -55,9 +59,9 @@ function newQuest() {
 //     document.body.appendChild(submitBtn);
 // }
 
-function getSubmitbtn(answerEl) {
+function getSubmitbtn(answerValue) {
     document.getElementById("submit-btn").addEventListener("click", function () {
-        if (parseInt(answerEl.getAttribute("data"))==questions[index].answer) {
+        if (answerValue==questions[index].answer) {
             index++
             questionsPlaceholder.innerHTML = "";
             newQuest();
