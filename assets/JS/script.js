@@ -2,7 +2,6 @@ var startButton = document.getElementById("start-btn");
 var nextButton = document.getElementById("next-btn");
 var questionContainer = document.getElementById("questions-container");
 var quest = document.getElementById("question");
-var answerButtons = document.getElementById("answer-buttons")
 var secondsLeft = 60;
 var timer = document.getElementById("timer");
 var score = document.getElementById("score");
