@@ -8,7 +8,7 @@ var score = document.getElementById("score");
 var endGame = document.getElementById("end-game")
 
 startButton.addEventListener("click", onStart);
-nextButton.addEventListener("click", function() {
+nextButton.addEventListener("click", function () {
     index++
     newQuest()
 })
@@ -20,7 +20,7 @@ function timeLeft() {
 
         if (secondsLeft === 0) {
             clearInterval(timerInterval);
-            
+
         }
     }, 1000);
 }
@@ -42,11 +42,12 @@ function newQuest() {
             btn.textContent = questions[index].choices[i];
 
             btn.addEventListener("click", function (event) {
-                answerValue = parseInt(this.getAttribute("data-value"))
+                answerValue = parseInt(this.getAttribute("data-value"));
+                checkAnswer(answerValue, index)
             })
         }
-    getSubmitbtn(answerValue)    
-    }else{
+
+    } else {
         gameEnd()
     }
 
@@ -59,14 +60,13 @@ function newQuest() {
 //     document.body.appendChild(submitBtn);
 // }
 
-function getSubmitbtn(answerValue) {
-    document.getElementById("submit-btn").addEventListener("click", function () {
-        if (answerValue==questions[index].answer) {
-            index++
-            questionsPlaceholder.innerHTML = "";
-            newQuest();
-        }
-    })
+//this needs to be comparing answer function
+function checkAnswer(answerValue, questionsindex) {
+    if (answerValue == questions[questionsindex].answer) {
+        var rightorWrong = document.querySelector(".right-or-wrong");
+        rightorWrong.textContent = "Correct!"
+
+    } else { rightorWrong.textContent = "Wrong!" }
 }
 
 function gameEnd() {
@@ -74,7 +74,7 @@ function gameEnd() {
     nextButton.classList.add("hide")
     questionContainer.classList.add("hide");
     score.textContent = secondsLeft
-    }
+}
 
 function onStart() {
     timeLeft();
@@ -86,7 +86,7 @@ function onStart() {
 var questions = [
     {
         question: "Who killed Ned Stark?",
-        choices: ["the executioner","Joffrey Baratheon", "his sense of morality", "Cersei Lannister"],
+        choices: ["the executioner", "Joffrey Baratheon", "his sense of morality", "Cersei Lannister"],
         answer: 2
     },
     {
