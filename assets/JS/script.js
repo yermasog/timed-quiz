@@ -7,11 +7,13 @@ var timer = document.getElementById("timer");
 var score = document.getElementById("score");
 var endGame = document.getElementById("end-game")
 let index = 0;
+var rightorWrong = document.querySelector(".right-or-wrong");
 
 startButton.addEventListener("click", onStart);
 nextButton.addEventListener("click", function () {
     index++
     newQuest()
+    rightorWrong.classList.add("hide")
 })
 
 function timeLeft() {
@@ -49,7 +51,7 @@ function newQuest() {
 }
 
 function checkAnswer(answerValue, questionsindex) {
-    var rightorWrong = document.querySelector(".right-or-wrong");
+    rightorWrong.classList.remove("hide")
     if (answerValue == questions[questionsindex].answer) {
         rightorWrong.textContent = "Correct!"
 

@@ -57,3 +57,7 @@ body {
 .questions-container {
     text-align: center;
 }
+
+.right-or-wrong {
+    font-size: 50px;
+}
