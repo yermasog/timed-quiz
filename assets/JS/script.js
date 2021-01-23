@@ -21,13 +21,11 @@ function timeLeft() {
 
         if (secondsLeft === 0) {
             clearInterval(timerInterval);
-
         }
     }, 1000);
 }
 
 function newQuest() {
-    
     questionContainer.classList.remove("hide");
     nextButton.classList.remove("hide");
     startButton.classList.add("hide");
@@ -47,21 +45,9 @@ function newQuest() {
                 checkAnswer(answerValue, index)
             })
         }
-
-    } else {
-        gameEnd()
-    }
-
+    } else {gameEnd()}
 }
 
-// function initializeSubmitBtn() {
-//     var submitBtn = document.createElement("button");
-//     submitBtn.textContent = "Submit";
-//     submitBtn.setAttribute("id", "submit-btn");
-//     document.body.appendChild(submitBtn);
-// }
-
-//this needs to be comparing answer function
 function checkAnswer(answerValue, questionsindex) {
     var rightorWrong = document.querySelector(".right-or-wrong");
     if (answerValue == questions[questionsindex].answer) {
@@ -79,10 +65,8 @@ function gameEnd() {
 
 function onStart() {
     timeLeft();
-    // initializeSubmitBtn()
     newQuest();
 }
-
 
 var questions = [
     {
@@ -106,7 +90,6 @@ var questions = [
         answer: 1
     },
     {
-
         question: "SPOILER ALERT: Who killed Daenerys Targaryen?",
         choices: ["Jon Snow", "David Benioff", "D.B. Weiss", "all of the above"],
         answer: 3
