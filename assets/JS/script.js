@@ -8,8 +8,6 @@ var timer = document.getElementById("timer");
 var score = document.getElementById("score");
 var endGame = document.getElementById("end-game")
 
-
-
 startButton.addEventListener("click", onStart)
 
 function timeLeft() {
@@ -36,7 +34,8 @@ function newQuest() {
         for (let i = 0; i < questions[index].choices.length; i++) {
             var btn = document.createElement("button");
             btn.setAttribute("data-value", i);
-            questionsPlaceholder.appendChild(btn);
+            btn.classList.add("btn-grid", "btn");
+            quest.appendChild(btn);
             btn.textContent = questions[index].choices[i];
 
             btn.addEventListener("click", function (event) {
@@ -45,17 +44,17 @@ function newQuest() {
         }
     getSubmitbtn(answerEl)    
     }else{
-        alert("you win!")
+        gameEnd()
     }
 
 }
 
-function initializeSubmitBtn() {
-    var submitBtn = document.createElement("button");
-    submitBtn.textContent = "Submit";
-    submitBtn.setAttribute("id", "submit-btn");
-    document.body.appendChild(submitBtn);
-}
+// function initializeSubmitBtn() {
+//     var submitBtn = document.createElement("button");
+//     submitBtn.textContent = "Submit";
+//     submitBtn.setAttribute("id", "submit-btn");
+//     document.body.appendChild(submitBtn);
+// }
 
 function getSubmitbtn(answerEl) {
     document.getElementById("submit-btn").addEventListener("click", function () {
@@ -67,11 +66,16 @@ function getSubmitbtn(answerEl) {
     })
 }
 
-
+function gameEnd() {
+    endGame.classList.remove("hide");
+    nextButton.classList.add("hide")
+    questionContainer.classList.add("hide");
+    score.textContent = secondsLeft
+    }
 
 function onStart() {
     timeLeft();
-    initializeSubmitBtn()
+    // initializeSubmitBtn()
     newQuest();
 }
 

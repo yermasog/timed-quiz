@@ -43,3 +43,10 @@ body {
     font-weight: bold;
     padding: 10px 20px;
 }
+
+.btn-grid {
+    display: grid;
+    grid-template-columns: 1;
+    gap: 10px;
+    margin: 20px 0;
+}
