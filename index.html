@@ -4,34 +4,35 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Timed Quiz</title>
-    <link rel="stylesheet" href="style.css">
+    <link href="assets/CSS/style.css" rel="stylesheet">
+    <title>time quiz</title>
 </head>
 
 <body>
-    <div id="answer" data="false"></div>
-    <div>
-        <header>
-            <h1>For Whom the Bell Tolls</h1>
-            <h2 class="highscore">
-                <a href="score.html" >High Scores</a>
-            </h2>
-            <h2 class="timer">Time:</h2>
-        </header>
-        <main class="container questionsGoHere">
-            <p>Click "start" to start the quiz. You will have 60 seconds to complete the quiz. Wrong answers will result in losing 10 seconds of time.</p>
-            <button type="submit" class="start">START</button>
-        </main>
-        <answer>
-            <p class="answer">
-
-            </p>
-        </answer>
+    <div class="container">
+        <h1>For Whom the Bell Tolls</h1>
+        <div id="questions-container" class="hide">
+            <div id="timer">Timer:</div>
+            <div id="question">Question</div>
+            <div id="answer-buttons" class="btn-grid">
+                <button class="btn" id="0">answer 1</button>
+                <button class="btn" id="1">answer 2</button>
+                <button class="btn" id="2">answer 3</button>
+                <button class="btn" id="3">answer 4</button>
+            </div>
+        </div>
+        <div class="hide" id="end-game">
+            <h1>Game Over!</h1>
+            <label for="name">Name:</label>
+            <input type="text" id="name" name="name">
+            <p>High Score: <span id="score"></span> </p>
+        </div>
+        <div class="controls">
+            <button id="start-btn" class="start-btn btn">Start</button>
+            <button id="next-btn" class="next-btn btn hide">Next</button>
+        </div>
     </div>
-
-
-
-    <script src="script.js"></script>
+    <script src="assets/JS/script.js"></script>
 </body>
 
 </html>

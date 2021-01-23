@@ -1,21 +1,18 @@
-var timeEl = document.querySelector(".timer");
-var startEl = document.querySelector(".start");
-var questionsPlaceholder = document.querySelector(".questionsGoHere");
-var index = 0
-var answer = document.querySelector("answer")
-var secondsLeft = 60;
-var timerInterval;
+var questionsContainer = document.getElementById("questions-container");
+var timer = document.getElementById("timer");
+var quest = document.getElementById("question");
+
 
 var questions = [
     {
         question: "Who killed Ned Stark?",
-        choices: ["the executioner", "Joffrey Baratheon", "Cersei Lannister", "his sense of morality"],
-        answer: 3
+        choices: ["the executioner","Joffrey Baratheon", "his sense of morality", "Cersei Lannister"],
+        answer: 2
     },
     {
         question: "Who killed Ramsay Bolton?",
-        choices: ["Sansa Stark", "Sansa Stark", "Sansa Stark", "the Queen of the North"],
-        answer: 0
+        choices: ["this is NOT the answer", "and it wasn't Jon Snow", "so the answer should be obvious now", "Sansa. It was Sansa."],
+        answer: 3
     },
     {
         question: "Who did NOT get killed by Arya Stark?",
