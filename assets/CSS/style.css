@@ -1,5 +1,4 @@
 body {
-    --hue: var(--hue-neutral);
     padding: 0;
     margin: 0;
     display: flex;
@@ -7,8 +6,8 @@ body {
     height: 100vh;
     justify-content: center;
     align-items: center;
-    background-color: hsl(var(--hue), 100%, 20%);
 }
+
 
 .container {
     width: 800px;
@@ -56,6 +55,15 @@ body {
 
 .questions-container {
     text-align: center;
+}
+
+#timer {
+    font-size: 50px;
+    color: red;
+}
+
+#question {
+    font-size: 35px;
 }
 
 .right-or-wrong {

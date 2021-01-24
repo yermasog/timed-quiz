@@ -9,7 +9,11 @@
 </head>
 
 <body>
+
     <div class="container">
+        <div>
+            <a href=score.html class="score">High Scores</a> 
+        </div>
         <h1>For Whom the Bell Tolls</h1>
         <div id="questions-container" class="hide">
             <div id="timer">Timer:</div>
@@ -19,7 +23,8 @@
         <div class="hide" id="end-game">
             <h1>Game Over!</h1>
             <label for="name">Name:</label>
-            <input type="text" id="name" name="name">
+            <input type="text" id="name">
+            <button id="add-score" class="save-btn">Add me to the Hall of Fame</button>
             <p>High Score: <span id="score"></span> </p>
         </div>
         <div class="controls">

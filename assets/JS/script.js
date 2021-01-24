@@ -8,6 +8,9 @@ var score = document.getElementById("score");
 var endGame = document.getElementById("end-game")
 let index = 0;
 var rightorWrong = document.querySelector(".right-or-wrong");
+var scoreCounter = 0;
+var saveButton = document.getElementById("add-score")
+var nameEl = document.getElementById("name");
 
 startButton.addEventListener("click", onStart);
 nextButton.addEventListener("click", function () {
@@ -16,13 +19,16 @@ nextButton.addEventListener("click", function () {
     rightorWrong.classList.add("hide")
 })
 
+
+
 function timeLeft() {
     timerInterval = setInterval(function () {
         secondsLeft--;
         timer.textContent = "Time: " + secondsLeft;
 
-        if (secondsLeft === 0) {
+        if (secondsLeft <= 0) {
             clearInterval(timerInterval);
+            gameEnd()
         }
     }, 1000);
 }
@@ -54,21 +60,52 @@ function checkAnswer(answerValue, questionsindex) {
     rightorWrong.classList.remove("hide")
     if (answerValue == questions[questionsindex].answer) {
         rightorWrong.textContent = "Correct!"
+        scoreCounter ++ 
 
-    } else { rightorWrong.textContent = "Wrong!" }
+    } else { rightorWrong.textContent = "Wrong!";
+            secondsLeft = secondsLeft -10 }
 }
 
 function gameEnd() {
     endGame.classList.remove("hide");
     nextButton.classList.add("hide")
     questionContainer.classList.add("hide");
-    score.textContent = secondsLeft
+    score.textContent = scoreCounter;
+    saveHighscore()
+    
 }
+
+function saveHighscore() {
+    // get value of input box
+     var name = nameEl.value.trim();
+  
+    // make sure value wasn't empty
+    if (name !== "") {
+      // get saved scores from localstorage, or if not any, set to empty array
+      var highscores =
+        JSON.parse(window.localStorage.getItem("highscores")) || [];
+  
+      // format new score object for current user
+      var newScore = {
+        score: scoreCounter,
+        name: nameEl
+      };
+  
+      // save to localstorage
+      highscores.push(newScore);
+      window.localStorage.setItem("highscores", JSON.stringify(highscores));
+  
+      // redirect to next page
+      window.location.href = "score.html";
+    }
+  }
 
 function onStart() {
     timeLeft();
     newQuest();
 }
+
+
 
 var questions = [
     {
