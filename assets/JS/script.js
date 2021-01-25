@@ -13,7 +13,7 @@ var saveButton = document.getElementById("add-score")
 var nameEl = document.getElementById("name");
 
 startButton.addEventListener("click", onStart);
-nextButton.addEventListener("click", function () {
+nextButton.addEventListener("click", () => {
     index++
     newQuest()
     rightorWrong.classList.add("hide")
@@ -22,7 +22,7 @@ nextButton.addEventListener("click", function () {
 
 
 function timeLeft() {
-    timerInterval = setInterval(function () {
+    timerInterval = setInterval(() => {
         secondsLeft--;
         timer.textContent = "Time: " + secondsLeft;
 
