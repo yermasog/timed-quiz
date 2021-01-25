@@ -1,4 +1,4 @@
-function printHighscores() {
+function displayScores() {
     // either get scores from localstorage or set to empty array
     var highscores = JSON.parse(window.localStorage.getItem("highscores")) || [];
   
@@ -18,13 +18,13 @@ function printHighscores() {
     });
   }
   
-  function clearHighscores() {
+  function clearScores() {
     window.localStorage.removeItem("highscores");
     window.location.reload();
   }
   
-  document.getElementById("clear").onclick = clearHighscores;
+  document.getElementById("clear").onclick = clearScores;
   
   // run function when page loads
-  printHighscores();
+  displayScores();
   
