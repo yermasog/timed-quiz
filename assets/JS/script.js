@@ -18,6 +18,9 @@ nextButton.addEventListener("click", () => {
     newQuest()
     rightorWrong.classList.add("hide")
 })
+saveButton.addEventListener("click", () => {
+    saveHighscore()
+})
 
 
 
@@ -88,7 +91,7 @@ function saveHighscore() {
       // format new score object for current user
       var newScore = {
         score: scoreCounter,
-        name: nameEl
+        name: name
       };
   
       // save to localstorage
